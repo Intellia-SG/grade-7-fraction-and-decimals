@@ -5,7 +5,11 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const API_KEY = process.env.ELEVENLABS_API_KEY || 'sk_0af55b573c54fe31387443150c45624fed865ccc914cd486';
+try {
+  process.loadEnvFile?.();
+} catch {}
+
+const API_KEY = process.env.ELEVENLABS_API_KEY || '';
 const VOICE_ID = 'Xb7hH8MSUJpSbSDYk0k2';
 
 const STYLE_SETTINGS = {
